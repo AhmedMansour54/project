@@ -1,10 +1,10 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 // import 'havesine.dart';
 import 'dart:async';
 import 'dart:math';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,20 +14,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-   
-  int counter =0;
-  Timer? time;
-  double d=0;
-  double s=0;
-  
-
+    
+    double d=0;
+    double s=0;
+    
   @override
   void initState() {
     super.initState();
     locationService();
   }
-
+   
   Future<void> locationService() async {
+    
     Location location = new Location();
 
     bool _serviceEnabled;
@@ -55,7 +53,8 @@ class _SplashScreenState extends State<SplashScreen> {
     setState(() {
       UserLocation.lats = _locData.latitude!;
       UserLocation.longs = _locData.longitude!;
-    
+      UserLocation.late = 0;
+      UserLocation.longe = 0;
     });
 
 
@@ -69,11 +68,9 @@ class _SplashScreenState extends State<SplashScreen> {
       d = Haversine.calculateDistance(UserLocation.lats, UserLocation.lats, 
                   UserLocation.late, UserLocation.late);
       d = d * 1000;            
-      s=d / 30;     
-      // UserLocation.lats = UserLocation.late;
-      // UserLocation.longs = UserLocation.longe; 
-          // UserLocation.late=0;
-          // UserLocation.longe=0;
+      s=d / 30;
+           
+      
     });
     });
 
@@ -182,6 +179,40 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
            
                   ],
+                ),
+
+
+                Row(
+                  
+                  
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                   
+                      Container(
+                        alignment: Alignment.center,
+                      width: 100.0,
+                      color: Color.fromARGB(255, 69, 134, 127),
+                      padding: EdgeInsets.all(4.0),
+                      margin: EdgeInsets.all(20.0),
+                        child: TextButton(
+                        onPressed: () {
+                        Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SplashScreen()
+                        )
+                        );
+                        },
+                        child: Text('Restart',
+                        style: TextStyle(
+                        
+                        height: 2.0,
+                        color: Colors.black,
+                        backgroundColor:  Color.fromARGB(255, 69, 134, 127),
+                                          ),
+                        ),
+                        ),
+                      ),
+                    ],
                 ),
         ],
       ),
