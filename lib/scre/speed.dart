@@ -1,4 +1,7 @@
 
+// Avarge speed
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 // import 'havesine.dart';
@@ -143,14 +146,16 @@ class _SplashScreenState extends State<SplashScreen> {
                   children: [
                     Container(
                       alignment: Alignment.center,
+                      width: 240.0,
+                      color: Color.fromARGB(255, 69, 134, 127),
+                      padding: EdgeInsets.all(5.0),
+                      margin: EdgeInsets.all(25.0),
                       
-                      padding: EdgeInsets.all(15.0),
-                      // margin: EdgeInsets.all(15.0),
                       child:
                       Text('Avarge Speed value is:',
                     style: TextStyle(
-                      // width: 300.0,
-                      height: 2.0,
+                      fontSize: 22.0,
+                    
                       backgroundColor:  Color.fromARGB(255, 69, 134, 127),
                     ),),
                     )
@@ -171,7 +176,11 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                    Text('${s}'+'m/s'),
+                    Text('${s}'+'m/s',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),),
+
                         ]
                     ),
                   
@@ -193,7 +202,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       width: 100.0,
                       color: Color.fromARGB(255, 69, 134, 127),
                       padding: EdgeInsets.all(4.0),
-                      margin: EdgeInsets.all(20.0),
+                      margin: EdgeInsets.all(25.0),
                         child: TextButton(
                         onPressed: () {
                         Navigator.of(context).push(
@@ -204,8 +213,8 @@ class _SplashScreenState extends State<SplashScreen> {
                         },
                         child: Text('Restart',
                         style: TextStyle(
+                        fontSize: 22.0,
                         
-                        height: 2.0,
                         color: Colors.black,
                         backgroundColor:  Color.fromARGB(255, 69, 134, 127),
                                           ),
